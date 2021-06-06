@@ -15,5 +15,8 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'index'])
+  ->name('dashboard')
+  ->middleware('is.user.login');
+  
 Route::get('login', [LoginController::class, 'index'])->name('login.page');
